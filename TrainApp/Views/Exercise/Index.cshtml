@@ -1,0 +1,51 @@
+﻿@model IEnumerable<TrainApp.Models.ExerciseModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div style="margin-left: auto; margin-right: auto; text-align: center;">
+
+    <p>
+        <a asp-action="Create" class="btn btn-warning">Add new exercise</a>
+  
+        <a asp-action="MainIndex" class="btn btn-warning">Back to menu</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Muscle)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Add)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Muscle)
+                </td>
+                <th>
+                    @Html.DisplayFor(model => item.Add)
+                </th>
+                <td>
+                    @Html.ActionLink("Add to training", "Add", new { id = item.ExerciseId }, new { @class = "btn btn-success" })
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ExerciseId }, new { @class = "btn btn-secondary" })
+                    @Html.ActionLink("Details", "Details", new { id = item.ExerciseId }, new { @class = "btn btn-secondary" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ExerciseId }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,26 @@
+﻿@model TrainApp.Models.ExerciseModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Are you sure to delete exercise ?</h1>
+
+<div>
+    <hr />
+    <dl class="row".
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Muscle)
+        </dd>
+
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="submit" value="Confirm deletion" class="btn btn-danger" /> 
+        <a asp-action="Index" class="btn btn-warning">Back to List</a>
+    </form>
+</div>

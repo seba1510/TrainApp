@@ -1,0 +1,40 @@
+﻿@model IEnumerable<TrainApp.Models.ExerciseModel>
+
+@{
+    ViewData["Title"] = "IndexTraining";
+}
+
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Muscle)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Muscle)
+            </td>
+            <td>
+                @Html.ActionLink("Finished", "Remove", new { id = item.ExerciseId }, new { @class = "btn btn-warning" })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<p>
+    <a asp-action="MainIndex" class="btn btn-warning">Go back to menu</a>
+</p>
